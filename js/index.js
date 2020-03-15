@@ -44,8 +44,25 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 let nav = document.querySelector('nav');
 let navLinks = nav.querySelectorAll('a');
 
+// two new items
+let home = document.createElement('a');
+let store = document.createElement('a');
+home.setAttribute('href', '#')
+store.setAttribute('href', '#')
+home.innerHTML = "Home";
+store.innerHTML = "Store";
+
+
 navLinks.forEach((link, index) => {
   link.innerHTML = siteContent.nav[`nav-item-${index+1}`];
+  if (index === 0) {
+    nav.prepend(home);
+    home.style.color = 'green';
+  }
+  if (index === navLinks.length-1) {
+    nav.append(store);
+    store.style.color = 'green';
+  }
   link.style.color = 'green';
 });
 
@@ -95,4 +112,5 @@ contact.querySelector('p:nth-child(4)').innerHTML = siteContent['contact']['emai
 
 // footer
 document.querySelector('footer p').innerHTML = siteContent['footer']['copyright'];
+
 
