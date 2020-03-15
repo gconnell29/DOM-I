@@ -49,3 +49,40 @@ navLinks.forEach((link, index) => {
   link.style.color = 'green';
 });
 
+let header1 = document.querySelector("h1");
+header1.innerHTML = "Dom<br>is<br>awesome";
+
+document.querySelector("button").innerHTML = siteContent.cta['button'];
+
+document.getElementById('cta-img').setAttribute('src', siteContent['cta']['img-src']);
+
+// top contents
+let features = document.querySelector(".top-content .text-content:nth-child(1)");
+features.querySelector('h4').innerHTML = siteContent["main-content"]['features-h4'];
+features.querySelector('p').innerHTML = siteContent["main-content"]['features-content'];
+
+let about = document.querySelector(".top-content .text-content:nth-child(2)");
+about.querySelector('h4').innerHTML = siteContent["main-content"]['about-h4'];
+about.querySelector('p').innerHTML = siteContent["main-content"]['about-content'];
+
+// code image
+let middleImg = document.querySelector('.middle-img');
+middleImg.setAttribute('src', siteContent["main-content"]['middle-img-src']);
+
+// bottom contents - using loop
+let bottomContent = document.querySelector('.bottom-content');
+let textContentCount = 1;
+
+// console.log(Object.keys(siteContent['main-content'])[5]);
+// console.log((siteContent['main-content'])[5]); does not work 
+
+for (let i = 5; i < Object.keys(siteContent['main-content']).length; i+2) {
+  let textContent = bottomContent.querySelector(`.text-content:nth-child(${textContentCount})`);
+  let mainContentCount = Object.keys(siteContent['main-content'])[i];
+  let mainContentCountNext = Object.keys(siteContent['main-content'])[i+1];
+  textContent.querySelector('h4').innerHTML = siteContent['main-content'][mainContentCount];
+  textContent.querySelector('p').innerHTML = siteContent['main-content'][mainContentCountNext];
+  textContentCount++;
+}
+
+
