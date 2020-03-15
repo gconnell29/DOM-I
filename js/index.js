@@ -71,18 +71,26 @@ middleImg.setAttribute('src', siteContent["main-content"]['middle-img-src']);
 
 // bottom contents - using loop
 let bottomContent = document.querySelector('.bottom-content');
+
+// console.log(Object.keys(siteContent['main-content'])[5]); works
+// console.log((siteContent['main-content'])[5]); does not work 
 let textContentCount = 1;
 
-// console.log(Object.keys(siteContent['main-content'])[5]);
-// console.log((siteContent['main-content'])[5]); does not work 
-
-for (let i = 5; i < Object.keys(siteContent['main-content']).length; i+2) {
+for (let i = 5; i < Object.keys(siteContent['main-content']).length; i++) {
   let textContent = bottomContent.querySelector(`.text-content:nth-child(${textContentCount})`);
   let mainContentCount = Object.keys(siteContent['main-content'])[i];
   let mainContentCountNext = Object.keys(siteContent['main-content'])[i+1];
   textContent.querySelector('h4').innerHTML = siteContent['main-content'][mainContentCount];
   textContent.querySelector('p').innerHTML = siteContent['main-content'][mainContentCountNext];
   textContentCount++;
+  i++;
 }
+
+// contact section
+let contact = document.querySelector('.contact');
+contact.querySelector('h4').innerHTML = siteContent['contact']['contact-h4'];
+contact.querySelector('p:nth-child(2)').innerHTML = siteContent['contact']['address'];
+contact.querySelector('p:nth-child(3)').innerHTML = siteContent['contact']['phone'];
+contact.querySelector('p:nth-child(4)').innerHTML = siteContent['contact']['email'];
 
 
