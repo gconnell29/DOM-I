@@ -93,4 +93,6 @@ contact.querySelector('p:nth-child(2)').innerHTML = siteContent['contact']['addr
 contact.querySelector('p:nth-child(3)').innerHTML = siteContent['contact']['phone'];
 contact.querySelector('p:nth-child(4)').innerHTML = siteContent['contact']['email'];
 
+// footer
+document.querySelector('footer p').innerHTML = siteContent['footer']['copyright'];
 
