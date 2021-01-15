@@ -1,11 +1,13 @@
 const siteContent = {
   "nav": {
+
     "nav-item-1": "Services",
     "nav-item-2": "Product",
     "nav-item-3": "Vision",
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
+    
     "img-src": "img/logo.png"
   },
   "cta": {
@@ -51,16 +53,18 @@ home.setAttribute('href', '#')
 store.setAttribute('href', '#')
 home.innerHTML = "Home";
 store.innerHTML = "Store";
+nav.prepend(home);
+nav.append(store);
 
+let navAll = document.querySelectorAll('nav a');
+console.log(navAll);
 
 navLinks.forEach((link, index) => {
   link.innerHTML = siteContent.nav[`nav-item-${index+1}`];
   if (index === 0) {
-    nav.prepend(home);
     home.style.color = 'green';
   }
   if (index === navLinks.length-1) {
-    nav.append(store);
     store.style.color = 'green';
   }
   link.style.color = 'green';
